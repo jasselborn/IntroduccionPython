@@ -1,0 +1,1 @@
+print('Clase 2')
