@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fintech Banking System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Fintech Banking Management System</h1>
+    
+    <div class="section">
+        <h2>Clients</h2>
+        <a href="/create_client" class="button">Create New Client</a>
+        <ul>
+            {% for client in clients %}
+            <li>{{ client }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    <div class="section">
+        <h2>Accounts</h2>
+        <a href="/create_account" class="button">Create New Account</a>
+        <ul>
+            {% for account in accounts %}
+            <li>{{ account }}
+                <a href="/deposit/{{ account.account_number }}" class="button">Deposit</a>
+                <a href="/withdraw/{{ account.account_number }}" class="button">Withdraw</a>
+                <a href="/transactions/{{ account.account_number }}" class="button">View Transactions</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

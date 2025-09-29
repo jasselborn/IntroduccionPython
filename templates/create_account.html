@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Create New Account</h1>
+    <form method="POST">
+        <label for="client_id">Select Client:</label>
+        <select id="client_id" name="client_id" required>
+            {% for client in clients %}
+            <option value="{{ client.client_id }}">{{ client.name }} (ID: {{ client.client_id }})</option>
+            {% endfor %}
+        </select>
+        <br>
+        <button type="submit">Create Account</button>
+    </form>
+    <a href="/">Back to Home</a>
+</body>
+</html>
